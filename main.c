@@ -18,8 +18,8 @@ void writeStart(FILE* output, struct settings settings) {
 	fprintf(output, "#include <stdio.h>\n");
 	fprintf(output, "#include <errno.h>\n");
 	fprintf(output, "#include <string.h>\n\n");
-	fprintf(output, "#define INITIAL_MEM_SIZE (%ld)\n", settings.initSize);
-	fprintf(output, "#define MEM_INC_SIZE (%ld)\n\n", settings.extendSize);
+	fprintf(output, "#define INITIAL_MEM_SIZE (%lld)\n", settings.initSize);
+	fprintf(output, "#define MEM_INC_SIZE (%lld)\n\n", settings.extendSize);
 	fprintf(output, "size_t current_size = INITIAL_MEM_SIZE;\n");
 	fprintf(output, "%s* mem;\n", settings.type);
 	fprintf(output, "long long ptr = 0;\n\n");
@@ -158,7 +158,6 @@ inline void addRow(char c, struct settings* settings, struct parseParams* params
 }
 
 void handleInputChar(char c, struct settings* settings, struct parseParams* params) {
-	int i;
 
 	switch(c) {
 		case '+':
